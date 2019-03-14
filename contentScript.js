@@ -1,4 +1,3 @@
-
 // var brand = "Nike"
 // var brandGrade = "B+"
 
@@ -33,7 +32,7 @@
 
 // var grade = "B+"
 
-// document.body.innerHTML = document.body.innerHTML.replace(new RegExp("\\b" + "Nike" + "\\b", "g"),
+// document.body.innerHTML = document.body.innerHTML.replace(new RegExp("\\b" + "Boeing" + "\\b", "g"),
 //                                                           `<span style='background-color: rgba(55,55,55, .3); border-radius: 3px; padding: 2px;'>$&</span>`); 
 
 
@@ -78,13 +77,31 @@ var matchText = function(node, regex, callback, excludeElements) {
 
 }
 
-var searchTerm = "Nike"
+var searchTerm = "Boeing"
+// var searchTerm = "Nike"
+
+// matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm + "\\b", "g"), function(node, match, offset) {
+//     var span = document.createElement("span");
+//     span.style = "background-color: rgba(55,55,55, .3); border-radius: 3px; padding: 2px;"
+//     // span.className = "search-term";
+//     console.log(span)
+//     span.textContent = match;
+//     node.parentNode.insertBefore(span, node.nextSibling); 
+// });
+
 
 matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm + "\\b", "g"), function(node, match, offset) {
     var span = document.createElement("span");
-    span.style = "background-color: rgba(55,55,55, .3); border-radius: 3px; padding: 2px;"
-    span.className = "search-term";
-    console.log(span)
-    span.textContent = match;
+    span.className = "rated-brand";
+    var div = document.createElement("div");
+    div.className = "dropdown-content";
+    var a = document.createElement("a");
+    a.href = "http://www.google.com";
+    a.innerText = "Google";
+    var p = document.createElement("div");
+    p.innerText = searchTerm;
+    div.appendChild(a);
+    span.appendChild(p);
+    span.appendChild(div);
     node.parentNode.insertBefore(span, node.nextSibling); 
 });

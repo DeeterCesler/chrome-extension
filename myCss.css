@@ -1,8 +1,43 @@
-#doggy {
+/* #doggy {
     background-color: rgba(0,0,0,.3);
     border-radius: 5px;
     margin: 5% 0 5% 0;
     padding: 0 10px 0 10px;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+} */
+
+.dropbtn {
+    background-color: rgba(55,55,55, .3); 
+    border-radius: 3px; 
+    padding: 2px;
 }
+
+.rated-brand {
+  display: inline-block;
+  background-color: rgba(55,55,55, .2);
+  border-radius: 3px; 
+  padding: 2px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.rated-brand:hover .dropdown-content {display: block;}
+
+.rated-brand:hover  {background-color: #3e8e41;}
