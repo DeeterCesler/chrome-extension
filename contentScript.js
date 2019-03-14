@@ -77,31 +77,31 @@ var matchText = function(node, regex, callback, excludeElements) {
 
 }
 
-var searchTerm = "Boeing"
-// var searchTerm = "Nike"
-
-// matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm + "\\b", "g"), function(node, match, offset) {
-//     var span = document.createElement("span");
-//     span.style = "background-color: rgba(55,55,55, .3); border-radius: 3px; padding: 2px;"
-//     // span.className = "search-term";
-//     console.log(span)
-//     span.textContent = match;
-//     node.parentNode.insertBefore(span, node.nextSibling); 
-// });
+var searchTerm = "Nike"
+var searchTerm = {
+    brandName: "Nike",
+    rating: "5",
+    ratingExplanation: "Click here to find out why Nike sucks",
+    referenceURL: "http://www.google.com",
+}
 
 
-matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm + "\\b", "g"), function(node, match, offset) {
+
+
+matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm.brandName + "\\b", "g"), function(node, match, offset) {
     var span = document.createElement("span");
     span.className = "rated-brand";
-    var div = document.createElement("div");
-    div.className = "dropdown-content";
+    var dropdown = document.createElement("div");
+    dropdown.className = "dropdown-content";
     var a = document.createElement("a");
-    a.href = "http://www.google.com";
-    a.innerText = "Google";
-    var p = document.createElement("div");
-    p.innerText = searchTerm;
-    div.appendChild(a);
-    span.appendChild(p);
-    span.appendChild(div);
+    a.href = searchTerm.referenceURL;
+    a.innerText = searchTerm.ratingExplanation;
+    var replacedBrandName = document.createElement("div");
+    replacedBrandName.innerText = searchTerm.brandName;
+    dropdown.appendChild(a);
+    console.log(dropdown)
+    span.appendChild(replacedBrandName);
+    span.appendChild(dropdown);
+    console.log(span)
     node.parentNode.insertBefore(span, node.nextSibling); 
 });
