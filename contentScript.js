@@ -1,14 +1,3 @@
-// var brand = "Nike"
-// var brandGrade = "B+"
-
-// var para = document.createElement("div");
-// para.id = "doggy"
-// var t = document.createTextNode(brand + " is a total " + brandGrade);
-// para.appendChild(t);
-
-// document.getElementById("manifest").appendChild(para);
-
-
 // var elements = document.getElementsByTagName("*");
 
 // for (let i = 0; i < elements.length; i++) {
@@ -77,16 +66,12 @@ var matchText = function(node, regex, callback, excludeElements) {
 
 }
 
-var searchTerm = "Nike"
 var searchTerm = {
     brandName: "Nike",
     rating: "5",
     ratingExplanation: "Click here to find out why Nike sucks",
     referenceURL: "http://www.google.com",
 }
-
-
-
 
 matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm.brandName + "\\b", "g"), function(node, match, offset) {
     var span = document.createElement("span");
