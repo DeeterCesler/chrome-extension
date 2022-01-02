@@ -40,13 +40,14 @@ var matchText = function(node, regex, callback, excludeElements) {
 }
 
 var searchTerm = {
-    brandName: "Nike",
+    brandName: "birb",
     rating: "5",
     ratingExplanation: "Click here to find out why Nike sucks",
     referenceURL: "http://www.google.com",
+    replacement: "bird"
 }
 
-matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm.brandName + "\\b", "g"), function(node, match, offset) {
+matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm.brandName + "\\b", "gi"), function(node, match, offset) {
     var span = document.createElement("span");
     span.className = "rated-brand";
     var dropdown = document.createElement("div");
@@ -55,7 +56,7 @@ matchText(document.getElementsByTagName("h1")[0], new RegExp("\\b" + searchTerm.
     a.href = searchTerm.referenceURL;
     a.innerText = searchTerm.ratingExplanation;
     var replacedBrandName = document.createElement("div");
-    replacedBrandName.innerText = searchTerm.brandName;
+    replacedBrandName.innerText = searchTerm.replacement;
     dropdown.appendChild(a);
     console.log(dropdown)
     span.appendChild(replacedBrandName);
